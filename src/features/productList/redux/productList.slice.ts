@@ -1,8 +1,10 @@
 import { PayloadAction, createAction, createSlice } from '@reduxjs/toolkit';
+import { Product } from '../api/productList.api.types';
 
 export interface ProductListState {
     landing: {
-        landingSummary: [];
+        loading: boolean;
+        productsList: Product[];
     };
     details: {
         productId: number;
@@ -13,7 +15,8 @@ export interface ProductListState {
 
 export const initialState: ProductListState = {
     landing: {
-        landingSummary: []
+        loading: false,
+        productsList: []
     },
     details: {
         productId: 0,
@@ -26,20 +29,21 @@ const ProductListSlice = createSlice({
     name: 'productList',
     initialState,
     reducers: {
+        storeProducts: (state: ProductListState, action: PayloadAction<Product[]>) => {
+            state.landing.productsList = action.payload;
+        },
+        setProductsLoading: (state: ProductListState, action: PayloadAction<boolean>) => {
+            state.landing.loading = action.payload;
+        },
         resetProductDetails: (state: ProductListState) => {
             state.details = initialState.details;
         },
-
         resetProductList: () => initialState
     }
 });
 
 const ProductListSagaActions = {
-    /* drillSagaActions must never be same as DrillSlice.actions.
-     * This is because, Saga runner will confuse the saga action with the slice action and call both actions at the same time.
-     * This will result a loop and crash the app.
-     */
-    requestProductListLanding: createAction('ProductList/Landing/RequestProductListLanding'),
+    requestProductList: createAction('ProductList/Landing/RequestProductList'),
     requestProductDetails: createAction<{ id: string | number }>(
         'ProductList/Landing/RequestProductDetails'
     )

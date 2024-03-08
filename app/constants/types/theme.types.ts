@@ -24,5 +24,6 @@ export type ColorTypes = {
     };
     Background: {
         PRIMARY: string;
+        SECONDARY: string;
     };
 };

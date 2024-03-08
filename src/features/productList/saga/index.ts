@@ -1,7 +1,7 @@
 import { takeLatest } from 'typed-redux-saga';
 import { ProductListActions } from '../redux/productList.slice';
-import { requestSaga } from './productList.saga';
+import { requestProductListSaga } from './productList.saga';
 
 export const productListSagas = [
-    takeLatest(ProductListActions.requestProductListLanding.type, requestSaga)
+    takeLatest(ProductListActions.requestProductList.type, requestProductListSaga)
 ];

@@ -25,7 +25,8 @@ const LightThemeColors: ColorTypes = {
         INACTIVE_TINT: '#9D9D9D'
     },
     Background: {
-        PRIMARY: '#FFFFFF'
+        PRIMARY: '#FFFFFF',
+        SECONDARY: '#111111'
     }
 };
 
@@ -54,7 +55,8 @@ const DarkThemeColors: ColorTypes = {
         INACTIVE_TINT: '#9D9D9D'
     },
     Background: {
-        PRIMARY: '#FFFFFF'
+        PRIMARY: '#FFFFFF',
+        SECONDARY: '#111111'
     }
 };
 

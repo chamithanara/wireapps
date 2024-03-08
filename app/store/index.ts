@@ -1,7 +1,3 @@
-/**
- * Above eslint disable is for reactotron dynamic import.
- */
-
 import storage from '@react-native-async-storage/async-storage';
 import { configureStore, Middleware } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';

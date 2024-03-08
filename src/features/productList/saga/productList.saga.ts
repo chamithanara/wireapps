@@ -1,9 +1,15 @@
-import { SagaAction } from '@app/constants/types/generic.types';
+import { call, put } from 'typed-redux-saga';
+import { ProductListActions } from '../redux/productList.slice';
+import ProductListService from '../api/productList.service';
 
-export function* requestSaga(actions: SagaAction) {
+export function* requestProductListSaga() {
     try {
-        console.log("saga");
+        yield* put(ProductListActions.setProductsLoading(true));
+
+        const response = yield* call(ProductListService.requestProductsListService);
+        yield* put(ProductListActions.storeProducts(response.data));
+        yield* put(ProductListActions.setProductsLoading(false));
     } catch (error) {
-        
+        yield* put(ProductListActions.setProductsLoading(false));
     }
 }

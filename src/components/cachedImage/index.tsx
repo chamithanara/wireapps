@@ -63,7 +63,9 @@ const CachedImage: React.FC<Props> = props => {
 
     return (
         <>
-            {isImageLoading && showLoading ? <LoadingIndicator /> : null}
+            {isImageLoading && showLoading ? (
+                <LoadingIndicator color={Theme.Colors.Background.SECONDARY} />
+            ) : null}
             {renderFastImage ? (
                 <FastImage
                     style={[styles.fastImage, customStyles]}
