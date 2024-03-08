@@ -1,0 +1,17 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "commitlint",
+        "linebreak",
+        "persistor",
+        "plusplus",
+        "reactotron",
+        "reduxjs",
+        "UPSIDEDOWN"
+    ],
+    "flagWords": [],
+    "ignorePaths": [
+        "node_modules/**"
+    ]
+}
