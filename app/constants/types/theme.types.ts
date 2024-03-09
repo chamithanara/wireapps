@@ -9,6 +9,7 @@ export type ColorTypes = {
         INVERTED: string;
         SECONDARY: string;
         ERROR: string;
+        DISABLED: string;
     };
     TextInput: {
         VALUES: string;
@@ -22,8 +23,24 @@ export type ColorTypes = {
         ACTIVE_TINT: string;
         INACTIVE_TINT: string;
     };
+    Border: {
+        LIGHT: string;
+        DARK: string;
+    };
     Background: {
         PRIMARY: string;
         SECONDARY: string;
+        DESCRIPTION_TITLE: string;
+        DESCRIPTION_VALUE: string;
+    };
+    Button: {
+        PRIMARY: string;
+        SECONDARY: string;
+        TRANSPARENT: string;
+        TRANSPARENT_ALT: string;
+        DISABLED: string;
+        ROUND: string;
+        MUTE: string;
+        SELECTED: string;
     };
 };

@@ -10,7 +10,8 @@ const LightThemeColors: ColorTypes = {
         PRIMARY: '#000000',
         INVERTED: '#FFFFFF',
         SECONDARY: '#6F6F6F',
-        ERROR: '#ED0404'
+        ERROR: '#ED0404',
+        DISABLED: '#D1D1D1'
     },
     TextInput: {
         VALUES: '#000000',
@@ -24,10 +25,26 @@ const LightThemeColors: ColorTypes = {
         ACTIVE_TINT: '#1A1A1A',
         INACTIVE_TINT: '#9D9D9D'
     },
+    Border: {
+        LIGHT: '#DCDCDC',
+        DARK: '#000000'
+    },
     Background: {
         PRIMARY: '#FFFFFF',
-        SECONDARY: '#111111'
-    }
+        SECONDARY: '#111111',
+        DESCRIPTION_TITLE: '#E5E7E9',
+        DESCRIPTION_VALUE: '#F8F9F9'
+    },
+    Button: {
+        PRIMARY: '#111111',
+        SECONDARY: '#FFFFFF',
+        TRANSPARENT: 'transparent',
+        TRANSPARENT_ALT: 'rgba(0, 0, 0, 0.2)',
+        DISABLED: '#F6F6F6',
+        ROUND: '#D9D9D9',
+        MUTE: '#ffffff34',
+        SELECTED: '#474747'
+    },
 };
 
 const DarkThemeColors: ColorTypes = {
@@ -40,7 +57,8 @@ const DarkThemeColors: ColorTypes = {
         PRIMARY: '#000000',
         INVERTED: '#000000',
         SECONDARY: '#6F6F6F',
-        ERROR: '#ED0404'
+        ERROR: '#ED0404',
+        DISABLED: '#D1D1D1'
     },
     TextInput: {
         VALUES: '#000000',
@@ -54,10 +72,26 @@ const DarkThemeColors: ColorTypes = {
         ACTIVE_TINT: '#1A1A1A',
         INACTIVE_TINT: '#9D9D9D'
     },
+    Border: {
+        LIGHT: '#DCDCDC',
+        DARK: '#000000'
+    },
     Background: {
         PRIMARY: '#FFFFFF',
-        SECONDARY: '#111111'
-    }
+        SECONDARY: '#111111',
+        DESCRIPTION_TITLE: '#E5E7E9',
+        DESCRIPTION_VALUE: '#F8F9F9'
+    },
+    Button: {
+        PRIMARY: '#111111',
+        SECONDARY: '#FFFFFF',
+        TRANSPARENT: 'transparent',
+        TRANSPARENT_ALT: 'rgba(0, 0, 0, 0.2)',
+        DISABLED: '#F6F6F6',
+        ROUND: '#D9D9D9',
+        MUTE: '#ffffff34',
+        SELECTED: '#474747'
+    },
 };
 
 export { LightThemeColors, DarkThemeColors };

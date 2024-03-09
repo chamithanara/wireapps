@@ -25,6 +25,9 @@ const validateRegex = (regExp: RegExp, value: string): RegExpExecArray | null =>
     return regex.exec(value);
 };
 
-export { getAppBuildNumber, validateRegex };
+const concatStrings = (firstString: string, secondString: string, concatBy: string): string =>
+    [firstString, secondString].join(concatBy);
+
+export { getAppBuildNumber, validateRegex, concatStrings };
 
 export default { setDeviceOrientation };

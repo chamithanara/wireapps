@@ -5,6 +5,7 @@ import { CachedImage, CustomText } from '@src/components';
 import FastImage from 'react-native-fast-image';
 import { FONT_SIZES } from '@app/constants/generic.constants';
 import NavigationHelpers from '@app/navigation/NavigationHelpers';
+import { concatStrings } from '@src/utils/app.utils';
 import { Product } from '../../api/productList.api.types';
 
 interface Props {
@@ -25,7 +26,7 @@ const ProductItem: React.FC<Props> = props => {
         <TouchableOpacity style={styles.card} onPress={onPressProduct}>
             <CachedImage
                 resizeMode={FastImage.resizeMode.contain}
-                customStyles={styles.thumb}
+                customStyles={styles.mainImage}
                 uri={product.mainImage}
             />
             <View style={styles.infoContainer}>
@@ -37,7 +38,11 @@ const ProductItem: React.FC<Props> = props => {
                 <CustomText
                     style={styles.price}
                     fontWeight="400"
-                    text={[product.price.currency, product.price.amount].join(' ')}
+                    text={concatStrings(
+                        product.price.currency,
+                        product.price.amount.toString(),
+                        ' '
+                    )}
                 />
             </View>
         </TouchableOpacity>
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
         marginVertical: 3,
         marginHorizontal: 5
     },
-    thumb: {
+    mainImage: {
         height: 200,
         borderTopLeftRadius: 16,
         borderTopRightRadius: 16,
