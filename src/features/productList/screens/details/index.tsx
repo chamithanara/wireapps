@@ -4,13 +4,17 @@ import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { FlatList, ListRenderItem, ScrollView, TouchableOpacity, View } from 'react-native';
 import CachedImage from '@src/components/cachedImage';
 import Theme from '@src/themes';
-import { concatStrings } from '@src/utils/app.utils';
+import { concatTwoStrings } from '@src/utils/string.utils';
 import FastImage from 'react-native-fast-image';
 import { FONT_SIZES } from '@app/constants/generic.constants';
 import { Strings } from '@src/strings';
+import { useReduxDispatch } from '@app/store';
+import { SecuredActions } from '@app/redux/secured.slice';
+import NavigationHelpers from '@app/navigation/NavigationHelpers';
+
 import { Product } from '../../api/productList.api.types';
 import ProductDescriptionItem from '../../components/productDescription';
-import { productMultiColors } from '../../constants/productList.constants';
+import { multiColors, productMultiColors } from '../../constants/productList.constants';
 import styles from './styles';
 
 type ProductDetailsRouteProps = RouteProp<ParamListBase, 'ProductList/Details'>;
@@ -29,6 +33,7 @@ const ProductDetails: FC = ({ route }: Props) => {
     const params = (route?.params as NavParams)?.payload || ({} as NavParams);
     const { product } = params;
 
+    const dispatch = useReduxDispatch();
     const [selectedColor, setSelectedColor] = useState<string>('');
     const [selectedSize, setSelectedSize] = useState<number>(0);
     const [addToCartButtonDisabled, setAddToCartButtonDisabled] = useState<boolean>(true);
@@ -96,7 +101,7 @@ const ProductDetails: FC = ({ route }: Props) => {
                 />
                 <CustomText
                     style={styles.price}
-                    text={concatStrings(
+                    text={concatTwoStrings(
                         product.price.currency,
                         product.price.amount.toString(),
                         Strings.product.concatSpace
@@ -109,6 +114,11 @@ const ProductDetails: FC = ({ route }: Props) => {
         [product.name, product.price.amount, product.price.currency]
     );
 
+    const getColors = useMemo(
+        () => (product.colour === multiColors ? productMultiColors : [product.colour]),
+        [product.colour]
+    );
+
     const renderProductSpecifications = useMemo(
         () => (
             <>
@@ -118,7 +128,7 @@ const ProductDetails: FC = ({ route }: Props) => {
                         style={styles.colorsList}
                         showsHorizontalScrollIndicator={false}
                         showsVerticalScrollIndicator={false}
-                        data={productMultiColors}
+                        data={getColors}
                         renderItem={renderColorItems}
                         keyExtractor={item => item}
                         horizontal
@@ -138,7 +148,7 @@ const ProductDetails: FC = ({ route }: Props) => {
                 </View>
             </>
         ),
-        [product.sizes, renderColorItems, renderSizeItems]
+        [getColors, product.sizes, renderColorItems, renderSizeItems]
     );
 
     const renderProductDescriptionList = useMemo(
@@ -160,9 +170,29 @@ const ProductDetails: FC = ({ route }: Props) => {
         [product.SKU, product.brandName, product.description]
     );
 
+    const addProductToCart = useCallback(() => {
+        dispatch(
+            SecuredActions.addToCart({
+                product,
+                color: selectedColor,
+                size: selectedSize,
+                quantity: 1
+            })
+        );
+    }, [dispatch, product, selectedColor, selectedSize]);
+
+    const onClickShoppingCart = useCallback(() => {
+        NavigationHelpers.navigateToCart();
+    }, []);
+
     return (
         <View style={styles.container}>
-            <AppHeader renderLeftComponent renderRightComponent />
+            <AppHeader
+                renderLeftComponent
+                renderRightComponent
+                renderRightCountComponent
+                onRightActionPress={onClickShoppingCart}
+            />
             <ScrollView style={styles.scrollViewContainer} showsVerticalScrollIndicator={false}>
                 <CachedImage
                     customStyles={styles.image}
@@ -181,9 +211,7 @@ const ProductDetails: FC = ({ route }: Props) => {
                 <Button
                     title={Strings.product.addToCart}
                     type="primary"
-                    onPress={() => {
-                        console.log('');
-                    }}
+                    onPress={addProductToCart}
                     isDisabled={addToCartButtonDisabled}
                     buttonStyle={styles.addToCartButton}
                 />

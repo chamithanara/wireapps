@@ -1,5 +1,7 @@
 import storage from '@react-native-async-storage/async-storage';
 import { configureStore, Middleware } from '@reduxjs/toolkit';
+import { getPersistConfig } from 'redux-deep-persist';
+import createEncryptedStorage from 'redux-persist-encrypted-storage';
 import { combineReducers } from 'redux';
 import {
     persistStore,
@@ -15,16 +17,27 @@ import createSagaMiddleware from 'redux-saga';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import rootReducer from './rootReducer';
+import securedReducer from './securedReducer';
 import rootSaga from './rootSagas';
 
 export type RootState = ReturnType<typeof reducers>;
 
-// Creating Middleware
+const securedStorage = createEncryptedStorage();
+
+const securedConfig = getPersistConfig({
+    key: 'secured',
+    storage: securedStorage,
+    timeout: 50000,
+    whitelist: ['cartItems'],
+    rootReducer: securedReducer
+});
+
 const sagaMiddleware = createSagaMiddleware();
 const middleware: Middleware[] = [sagaMiddleware];
 
-// Combining Reducers
+type SecuredReducerType = ReturnType<typeof securedReducer>;
 const combinedReducer = combineReducers({
+    secured: persistReducer<SecuredReducerType>(securedConfig, securedReducer),
     general: rootReducer
 });
 
@@ -33,7 +46,7 @@ const config = {
     key: 'root',
     storage,
     timeout: 50000,
-    blacklist: ['general'],
+    blacklist: ['secured', 'general'],
     rootReducer: combinedReducer
 };
 

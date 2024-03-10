@@ -11,7 +11,6 @@ import Navigator from '@app/navigation';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import initializeStore from './store';
-// import './api/axiosInterceptors';
 
 const { persistor, store } = initializeStore();
 

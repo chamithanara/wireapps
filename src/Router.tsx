@@ -8,8 +8,8 @@ import appUtils from './utils/app.utils';
 
 const Router = () => {
     const dispatch = useReduxDispatch();
-    // appUtils.setDeviceOrientation(DeviceOrientationTypes.PORTRAIT);
-    // appUtils.setDeviceOrientation(DeviceOrientationTypes['PORTRAIT-UPSIDEDOWN']);
+    appUtils.setDeviceOrientation(DeviceOrientationTypes.PORTRAIT);
+    appUtils.setDeviceOrientation(DeviceOrientationTypes['PORTRAIT-UPSIDEDOWN']);
 
     useEffect(() => {
         Theme.setTheme('light');

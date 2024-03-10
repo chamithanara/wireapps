@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import Theme from '@src/themes/index';
+import { hasNotch } from 'react-native-device-info';
 
 const Styles = StyleSheet.create({
     container: {
@@ -23,7 +24,7 @@ const Styles = StyleSheet.create({
         width: '100%',
         paddingHorizontal: 24,
         zIndex: 5,
-        paddingTop: 70,
+        paddingTop: hasNotch() ? 70 : 40,
         backgroundColor: Theme.Colors.Background.PRIMARY
     },
     primary: {
@@ -50,6 +51,23 @@ const Styles = StyleSheet.create({
         width: 20,
         height: 20,
         marginBottom: 5
+    },
+    rightCountContainer: {
+        position: 'absolute',
+        backgroundColor: Theme.Colors.Background.DESCRIPTION_TITLE,
+        marginLeft: 15,
+        margin: 0,
+        padding: 0,
+        borderRadius: 10,
+        width: 17,
+        height: 17,
+        justifyContent: 'center'
+    },
+    rightCountText: { marginLeft: 5 },
+    rightText: {
+        textAlign: 'right',
+        width: 75,
+        height: 20
     }
 });
 

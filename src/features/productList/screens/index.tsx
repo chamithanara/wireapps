@@ -2,8 +2,12 @@ import NavigationHelpers from '@app/navigation/NavigationHelpers';
 import { useReduxDispatch, useReduxSelector } from '@app/store';
 import AppHeader from '@src/components/appHeader';
 import { Strings } from '@src/strings';
-import React, { FC, useCallback, useEffect } from 'react';
-import { FlatList, ListRenderItem, StyleSheet, View } from 'react-native';
+import { hasNotch } from 'react-native-device-info';
+import React, { FC, useCallback, useEffect, useMemo } from 'react';
+import { FlatList, ListRenderItem, RefreshControl, StyleSheet, View } from 'react-native';
+
+import { CustomText } from '@src/components';
+import { FONT_SIZES } from '@app/constants/generic.constants';
 import { ProductListActions } from '../redux/productList.slice';
 import { productsListSelector } from '../redux/productList.selectors';
 import { Product } from '../api/productList.api.types';
@@ -13,9 +17,13 @@ const ProductList: FC = () => {
     const dispatch = useReduxDispatch();
     const productsList = useReduxSelector(productsListSelector);
 
-    useEffect(() => {
+    const getProductList = useCallback(() => {
         dispatch(ProductListActions.requestProductList());
     }, [dispatch]);
+
+    useEffect(() => {
+        getProductList();
+    }, [dispatch, getProductList]);
 
     const onClickShoppingCart = useCallback(() => {
         NavigationHelpers.navigateToCart();
@@ -26,12 +34,26 @@ const ProductList: FC = () => {
         []
     );
 
+    const renderEmptyMessage = useMemo(
+        () => (
+            <View style={styles.emptyMessageContainer}>
+                <CustomText
+                    fontSize={FONT_SIZES.Caption}
+                    fontWeight="500"
+                    text={Strings.productList.emptyMessage}
+                />
+            </View>
+        ),
+        []
+    );
+
     return (
         <View style={styles.container}>
             <AppHeader
                 centerText={Strings.navigationTitle.productsList}
                 renderCenterComponent
                 renderRightComponent
+                renderRightCountComponent
                 onRightActionPress={onClickShoppingCart}
             />
             {productsList.length > 0 ? (
@@ -41,8 +63,13 @@ const ProductList: FC = () => {
                     data={productsList}
                     renderItem={renderItem}
                     keyExtractor={item => item.id.toString()}
+                    refreshControl={
+                        <RefreshControl refreshing={false} onRefresh={getProductList} />
+                    }
                 />
-            ) : null}
+            ) : (
+                renderEmptyMessage
+            )}
         </View>
     );
 };
@@ -50,7 +77,11 @@ const ProductList: FC = () => {
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        paddingBottom: 95
+        paddingBottom: hasNotch() ? '22%' : '17%'
+    },
+    emptyMessageContainer: {
+        marginTop: 50,
+        alignItems: 'center'
     }
 });
 

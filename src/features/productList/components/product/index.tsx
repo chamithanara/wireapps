@@ -5,7 +5,9 @@ import { CachedImage, CustomText } from '@src/components';
 import FastImage from 'react-native-fast-image';
 import { FONT_SIZES } from '@app/constants/generic.constants';
 import NavigationHelpers from '@app/navigation/NavigationHelpers';
-import { concatStrings } from '@src/utils/app.utils';
+import { concatTwoStrings } from '@src/utils/string.utils';
+import { Strings } from '@src/strings';
+
 import { Product } from '../../api/productList.api.types';
 
 interface Props {
@@ -38,10 +40,10 @@ const ProductItem: React.FC<Props> = props => {
                 <CustomText
                     style={styles.price}
                     fontWeight="400"
-                    text={concatStrings(
+                    text={concatTwoStrings(
                         product.price.currency,
                         product.price.amount.toString(),
-                        ' '
+                        Strings.product.concatSpace
                     )}
                 />
             </View>

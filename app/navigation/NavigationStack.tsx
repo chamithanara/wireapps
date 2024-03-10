@@ -1,18 +1,12 @@
 import React from 'react';
 import { StackNavigationOptions, createStackNavigator } from '@react-navigation/stack';
 import { MainScreensStack } from '@app/constants/navigation.constants';
-import { ParamListBase, RouteProp } from '@react-navigation/native';
 import Router from '@src/Router';
 import HomeNavigation from '@src/features/home/navigation';
 import ProductListNavigation from '@src/features/productList/navigation';
 import CartNavigation from '@src/features/cart/navigation';
 
 const MainNavigator = createStackNavigator();
-
-type Route = RouteProp<ParamListBase> & { params?: { screen?: string } };
-type Options = {
-    route: Route;
-};
 
 const NavigationStack: React.FC = () => {
     const getOptions = () =>

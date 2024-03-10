@@ -44,7 +44,7 @@ const LightThemeColors: ColorTypes = {
         ROUND: '#D9D9D9',
         MUTE: '#ffffff34',
         SELECTED: '#474747'
-    },
+    }
 };
 
 const DarkThemeColors: ColorTypes = {
@@ -91,7 +91,7 @@ const DarkThemeColors: ColorTypes = {
         ROUND: '#D9D9D9',
         MUTE: '#ffffff34',
         SELECTED: '#474747'
-    },
+    }
 };
 
 export { LightThemeColors, DarkThemeColors };

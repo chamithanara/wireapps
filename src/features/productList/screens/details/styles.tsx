@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         paddingTop: 10
     },
     addToCartButton: {
-        marginBottom: 40,
+        marginBottom: '8%',
         padding: 16,
         width: '100%'
     },
