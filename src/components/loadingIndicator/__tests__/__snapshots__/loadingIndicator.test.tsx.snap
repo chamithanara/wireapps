@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingIndicator matches the snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "flexDirection": "column",
+      "height": 50,
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <ActivityIndicator
+    color="#FFFFFF"
+    size={25}
+  />
+</View>
+`;

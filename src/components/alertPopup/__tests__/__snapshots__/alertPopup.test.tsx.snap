@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing AlertPopup Component Alert Tests check outsideDismiss true 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      {
+        "cancelLabel": "cancel",
+        "message": "message",
+        "okLabel": "Ok",
+        "onCancelAction": [MockFunction],
+        "onOkAction": [MockFunction],
+        "outsideDismiss": true,
+        "title": "title",
+      },
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Testing AlertPopup Component Alert Tests check title with cancel button 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      {
+        "cancelLabel": "cancel",
+        "message": "message",
+        "onCancelAction": [MockFunction],
+        "title": "title",
+      },
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Testing AlertPopup Component Alert Tests check title with ok button 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      {
+        "message": "message",
+        "okLabel": "Ok",
+        "onOkAction": [MockFunction],
+        "title": "title",
+      },
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Testing AlertPopup Component Alert Tests check title with two buttons 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      {
+        "cancelLabel": "cancel",
+        "message": "message",
+        "okLabel": "Ok",
+        "onCancelAction": [MockFunction],
+        "onOkAction": [MockFunction],
+        "title": "title",
+      },
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;

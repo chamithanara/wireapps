@@ -12,19 +12,19 @@
       "moduleResolution": "node",
       "baseUrl": "./",
       "sourceMap": true,
-    "paths": {
-        "@app/*": ["app/*"],
-        "@src/*": ["src/*"],
-        "@navigation/*": ["app/navigation/*"],
-        "@store/*": ["app/store/*"],
-        "@components/*": ["src/components/*"],
-        "@root/*": ["./*"],
-        "@features/*": ["src/features/*"]
-    },
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true
+      "paths": {
+          "@app/*": ["app/*"],
+          "@src/*": ["src/*"],
+          "@navigation/*": ["app/navigation/*"],
+          "@store/*": ["app/store/*"],
+          "@components/*": ["src/components/*"],
+          "@root/*": ["./*"],
+          "@features/*": ["src/features/*"]
+      },
+      "allowSyntheticDefaultImports": true,
+      "skipLibCheck": true,
+      "resolveJsonModule": true,
+      "esModuleInterop": true
   },
   "exclude": ["node_modules"]
 }
