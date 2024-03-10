@@ -41,7 +41,7 @@ To Setup the project, follow the steps below.
 
 #### Product Details
 
-<img src="/screenshots/ProductDetail.png" width="300px" />
+<img src="/screenshots/ProductDetails.png" width="300px" />
 
 #### Cart
 
