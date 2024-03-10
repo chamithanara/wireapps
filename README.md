@@ -1,4 +1,4 @@
-# WireApps E-commerce Mobile Application
+# WireApps E-Commerce Mobile Application
 
 ### About
 
@@ -18,14 +18,16 @@ To Setup the project, follow the steps below.
     yarn install
     ```
 
+#### Screenshots
+
+## Product List
+
+<img src="/screenshots/ProductList.png" width="300px" />
+
+## Product Details
+
+<img src="/screenshots/ProductDetail.png" width="300px" />
+
+## Cart
+
 <img src="/screenshots/Cart.png" width="300px" />
-
-<!-- ![ScreenShot](https://github.com/chamithanara/wireapps/blob/develop/screenshots/Cart.png)
-
-![ScreenShot](https://github.com/chamithanara/wireapps/blob/develop/screenshots/ProductDetail.png)
-
-![ScreenShot](https://github.com/chamithanara/wireapps/blob/develop/screenshots/ProductList.png) -->
-
-<!--
-[url=https://postimg.cc/d7PW6KgD][img]https://i.postimg.cc/d7PW6KgD/Simulator-Screenshot-i-Phone-15-Pro-Max-2024-03-10-at-16-28-27.png[/img][/url] [url=https://postimg.cc/2L6TyjL9][img]https://i.postimg.cc/2L6TyjL9/Simulator-Screenshot-i-Phone-15-Pro-Max-2024-03-10-at-16-28-38.png[/img][/url] [url=https://postimg.cc/tZ9B0Nqj][img]https://i.postimg.cc/tZ9B0Nqj/Simulator-Screenshot-i-Phone-15-Pro-Max-2024-03-10-at-16-28-59.png[/img][/url]
- -->
