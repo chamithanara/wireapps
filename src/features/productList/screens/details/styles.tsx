@@ -17,12 +17,15 @@ const styles = StyleSheet.create({
         padding: 20
     },
     name: {
-        marginBottom: 10
+        marginBottom: 8
     },
     price: {
         fontSize: 18,
         color: Theme.Colors.Text.SECONDARY,
-        marginBottom: 20
+        marginBottom: 10
+    },
+    stockStatus: {
+        marginBottom: 15
     },
     description: {
         lineHeight: 24,

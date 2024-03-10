@@ -1,5 +1,5 @@
-import Theme from "@src/themes";
-import { StyleSheet } from "react-native";
+import Theme from '@src/themes';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10
     },
     totalText: {
-        paddingHorizontal: 10
+        paddingHorizontal: 12
     },
     emptyMessageContainer: {
         marginTop: 50,

@@ -6,12 +6,6 @@ enum HttpMethods {
     Patch = 'patch'
 }
 
-enum HttpCodes {
-    FORBIDDEN = 403,
-    INTERNAL_SERVER_ERROR = 500,
-    CONTENT_UNAVAILABLE = 404
-}
-
 enum DeviceOrientationTypes {
     'PORTRAIT' = 'PORTRAIT',
     'PORTRAIT-UPSIDEDOWN' = 'PORTRAIT-UPSIDEDOWN',
@@ -22,4 +16,9 @@ enum DeviceOrientationTypes {
     'UNKNOWN' = 'UNKNOWN'
 }
 
-export { HttpMethods, DeviceOrientationTypes, HttpCodes };
+enum StockStatus {
+    IN_STOCK = 'IN STOCK',
+    OUT_STOCK = 'OUT STOCK'
+}
+
+export { HttpMethods, DeviceOrientationTypes, StockStatus };

@@ -1,5 +1,5 @@
 import { ParamListBase, RouteProp } from '@react-navigation/native';
-import { AppHeader, Button, CustomText } from '@src/components';
+import { AlertPopup, AppHeader, Button, CustomText } from '@src/components';
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { FlatList, ListRenderItem, ScrollView, TouchableOpacity, View } from 'react-native';
 import CachedImage from '@src/components/cachedImage';
@@ -12,6 +12,7 @@ import { useReduxDispatch } from '@app/store';
 import { SecuredActions } from '@app/redux/secured.slice';
 import NavigationHelpers from '@app/navigation/NavigationHelpers';
 
+import { StockStatus } from '@app/constants/enums/generic.enums';
 import { Product } from '../../api/productList.api.types';
 import ProductDescriptionItem from '../../components/productDescription';
 import { multiColors, productMultiColors } from '../../constants/productList.constants';
@@ -39,10 +40,14 @@ const ProductDetails: FC = ({ route }: Props) => {
     const [addToCartButtonDisabled, setAddToCartButtonDisabled] = useState<boolean>(true);
 
     useEffect(() => {
-        if (selectedColor.length !== 0 && selectedSize !== 0) {
+        if (
+            selectedColor.length !== 0 &&
+            selectedSize !== 0 &&
+            product.stockStatus === StockStatus.IN_STOCK
+        ) {
             setAddToCartButtonDisabled(false);
         }
-    }, [selectedColor.length, selectedSize]);
+    }, [product.stockStatus, selectedColor.length, selectedSize]);
 
     const onChangeColor = useCallback((color: string) => {
         setSelectedColor(color);
@@ -90,9 +95,36 @@ const ProductDetails: FC = ({ route }: Props) => {
         [onChangeSize, selectedSize]
     );
 
+    const getStockStatus = useMemo(
+        () =>
+            product.stockStatus === StockStatus.IN_STOCK
+                ? StockStatus.IN_STOCK
+                : StockStatus.OUT_STOCK,
+        [product.stockStatus]
+    );
+
+    const getStockTextColor = useMemo(
+        () =>
+            getStockStatus === StockStatus.IN_STOCK
+                ? Theme.Colors.Text.AVAILABLE
+                : Theme.Colors.Text.ERROR,
+        [getStockStatus]
+    );
+
     const renderTopContent = useMemo(
         () => (
             <>
+                <CustomText
+                    style={[
+                        styles.stockStatus,
+                        {
+                            color: getStockTextColor
+                        }
+                    ]}
+                    text={getStockStatus}
+                    fontSize={FONT_SIZES.Tiny}
+                    fontWeight="bold"
+                />
                 <CustomText
                     style={styles.name}
                     text={product.name}
@@ -111,7 +143,13 @@ const ProductDetails: FC = ({ route }: Props) => {
                 />
             </>
         ),
-        [product.name, product.price.amount, product.price.currency]
+        [
+            getStockStatus,
+            getStockTextColor,
+            product.name,
+            product.price.amount,
+            product.price.currency
+        ]
     );
 
     const getColors = useMemo(
@@ -179,6 +217,10 @@ const ProductDetails: FC = ({ route }: Props) => {
                 quantity: 1
             })
         );
+        AlertPopup.showAlert({
+            message: Strings.cart.itemAddedSuccessfully,
+            okLabel: Strings.cart.okLabel
+        });
     }, [dispatch, product, selectedColor, selectedSize]);
 
     const onClickShoppingCart = useCallback(() => {

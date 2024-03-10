@@ -87,7 +87,7 @@ const CartItemView: React.FC<Props> = props => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.quantityView}>
-                    <TouchableOpacity onPress={handleRemoveItem}>
+                    <TouchableOpacity onPress={handleRemoveItem} disabled={item.quantity === 1}>
                         <Image source={Theme.Images.icons.minus} style={styles.minusImage} />
                     </TouchableOpacity>
                     <CustomText text={item.quantity.toString()} />

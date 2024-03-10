@@ -4,7 +4,7 @@
 
 Repository of WireApps E-commerce mobile application. This application is built using React Native.
 
-#### Setup
+### Setup
 
 To Setup the project, follow the steps below.
 
@@ -15,19 +15,34 @@ To Setup the project, follow the steps below.
     ```bash
     git clone <repo_url>
     cd <repo_name>
-    yarn install
+    yarn setup
     ```
 
-#### Screenshots
+### Functionalities
 
-## Product List
+-   List all products
+-   View product details
+    -   Select product size
+    -   Select product color
+    -   Show stock status
+    -   Add to Cart
+-   List cart items
+    -   List items according to size and color
+    -   Increase/Decrease item quantity
+    -   Remove an item from cart
+    -   Remove all items from cart
+    -   Calculate total
+
+### Screenshots
+
+#### Product List
 
 <img src="/screenshots/ProductList.png" width="300px" />
 
-## Product Details
+#### Product Details
 
 <img src="/screenshots/ProductDetail.png" width="300px" />
 
-## Cart
+#### Cart
 
 <img src="/screenshots/Cart.png" width="300px" />

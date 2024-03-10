@@ -29,6 +29,8 @@ const Strings = {
         currency: 'GBP',
         removeFromCart: 'Remove from Cart',
         removeItemMessage: 'Are you sure you want to remove this item?',
+        itemAddedSuccessfully: 'Product added to cart successfully',
+        okLabel: 'Ok',
         removeOkLabel: 'Yes',
         removeNoLabel: 'No',
         removeAllFromCart: 'Remove All Items',

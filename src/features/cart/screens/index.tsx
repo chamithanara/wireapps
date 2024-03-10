@@ -44,13 +44,13 @@ const Cart: FC = () => {
             <View style={styles.totalContainer}>
                 <View style={styles.totalCount}>
                     <CustomText
-                        fontWeight="500"
+                        fontWeight="bold"
                         fontSize={FONT_SIZES.Body}
                         text={Strings.cart.totalItems}
                         style={styles.totalText}
                     />
                     <CustomText
-                        fontWeight="500"
+                        fontWeight="bold"
                         fontSize={FONT_SIZES.Body}
                         text={cartTotalItems.toString()}
                     />
