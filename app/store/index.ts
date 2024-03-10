@@ -23,7 +23,6 @@ import rootSaga from './rootSagas';
 export type RootState = ReturnType<typeof reducers>;
 
 const securedStorage = createEncryptedStorage();
-
 const securedConfig = getPersistConfig({
     key: 'secured',
     storage: securedStorage,
