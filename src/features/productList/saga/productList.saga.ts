@@ -12,6 +12,7 @@ export function* requestProductListSaga() {
         yield* put(ProductListActions.setProductsLoading(false));
     } catch (error) {
         yield* put(ProductListActions.setProductsLoading(false));
+        // Configure BugFender and log error
         LoggingService.debug('error', error);
     }
 }

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         width: '100%',
-        height: 50
+        height: 100
     }
 });
 

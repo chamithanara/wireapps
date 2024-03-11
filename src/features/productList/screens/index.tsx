@@ -5,17 +5,19 @@ import { Strings } from '@src/strings';
 import { hasNotch } from 'react-native-device-info';
 import React, { FC, useCallback, useEffect, useMemo } from 'react';
 import { FlatList, ListRenderItem, RefreshControl, StyleSheet, View } from 'react-native';
+import Theme from '@src/themes';
 
-import { CustomText } from '@src/components';
+import { CustomText, LoadingIndicator } from '@src/components';
 import { FONT_SIZES } from '@app/constants/generic.constants';
 import { ProductListActions } from '../redux/productList.slice';
-import { productsListSelector } from '../redux/productList.selectors';
+import { productsListLoading, productsListSelector } from '../redux/productList.selectors';
 import { Product } from '../api/productList.api.types';
 import ProductItem from '../components/product';
 
 const ProductList: FC = () => {
     const dispatch = useReduxDispatch();
     const productsList = useReduxSelector(productsListSelector);
+    const productsLoading = useReduxSelector(productsListLoading);
 
     const getProductList = useCallback(() => {
         dispatch(ProductListActions.requestProductList());
@@ -47,16 +49,9 @@ const ProductList: FC = () => {
         []
     );
 
-    return (
-        <View style={styles.container}>
-            <AppHeader
-                centerText={Strings.navigationTitle.productsList}
-                renderCenterComponent
-                renderRightComponent
-                renderRightCountComponent
-                onRightActionPress={onClickShoppingCart}
-            />
-            {productsList.length > 0 ? (
+    const renderContent = useMemo(
+        () =>
+            productsList.length > 0 ? (
                 <FlatList
                     showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={false}
@@ -69,6 +64,23 @@ const ProductList: FC = () => {
                 />
             ) : (
                 renderEmptyMessage
+            ),
+        [getProductList, productsList, renderEmptyMessage, renderItem]
+    );
+
+    return (
+        <View style={styles.container}>
+            <AppHeader
+                centerText={Strings.navigationTitle.productsList}
+                renderCenterComponent
+                renderRightComponent
+                renderRightCountComponent
+                onRightActionPress={onClickShoppingCart}
+            />
+            {productsLoading ? (
+                <LoadingIndicator color={Theme.Colors.Background.SECONDARY} />
+            ) : (
+                renderContent
             )}
         </View>
     );
