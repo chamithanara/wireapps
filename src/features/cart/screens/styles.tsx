@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        paddingBottom: 70
+        paddingBottom: 74
     },
     cartList: {
         width: '100%',

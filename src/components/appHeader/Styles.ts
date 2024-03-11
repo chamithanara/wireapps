@@ -25,7 +25,12 @@ const Styles = StyleSheet.create({
         paddingHorizontal: 24,
         zIndex: 5,
         paddingTop: hasNotch() ? 70 : 40,
-        backgroundColor: Theme.Colors.Background.PRIMARY
+        backgroundColor: Theme.Colors.Background.PRIMARY,
+        borderBottomColor: Theme.Colors.Border.LIGHT,
+        borderBottomWidth: 0.5,
+        shadowOpacity: 0.4,
+        shadowRadius: 4,
+        shadowColor: Theme.Colors.Background.SECONDARY
     },
     primary: {
         flex: 1,
@@ -66,7 +71,7 @@ const Styles = StyleSheet.create({
     rightCountText: { marginLeft: 5 },
     rightText: {
         textAlign: 'right',
-        width: 75,
+        width: 72,
         height: 20
     }
 });

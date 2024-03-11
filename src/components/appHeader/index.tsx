@@ -70,7 +70,7 @@ const AppHeader: React.FC<Props> = props => {
                 <TouchableOpacity
                     hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }}
                     onPress={onRightActionPress}>
-                    <CustomText text={rightButtonText} style={[Styles.rightText]} />
+                    <CustomText text={rightButtonText} style={Styles.rightText} />
                 </TouchableOpacity>
             );
         }

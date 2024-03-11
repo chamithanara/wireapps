@@ -8,10 +8,12 @@
         "linebreak",
         "multicoloured",
         "Narawita",
+        "nativewind",
         "persistor",
         "plusplus",
         "reactotron",
         "reduxjs",
+        "tailwindcss",
         "UPSIDEDOWN"
     ],
     "flagWords": [],
