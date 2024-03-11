@@ -5,9 +5,9 @@ import { AlertPopup, CustomText } from '@src/components';
 import { useReduxDispatch } from '@app/store';
 import { SecuredActions } from '@app/redux/secured.slice';
 import { concatTwoStrings } from '@src/utils/string.utils';
+
 import CachedImage from '@src/components/cachedImage';
 import { Strings } from '@src/strings';
-
 import { CartItem } from '../../constants/cart.types';
 
 type Props = {
@@ -40,7 +40,7 @@ const CartItemView: React.FC<Props> = props => {
 
     const renderDetailsView = useMemo(
         () => (
-            <View className={`${variantStyles.detailWrapper}`}>
+            <View style={styles.detailWrapper}>
                 <CustomText fontWeight="bold" text={item.product.name} numberOfLines={2} />
                 <CustomText
                     fontWeight="500"
@@ -80,28 +80,19 @@ const CartItemView: React.FC<Props> = props => {
 
     const renderRightIconView = useMemo(
         () => (
-            <View className={`${variantStyles.iconView}`}>
-                <View className={`${variantStyles.deleteIcon}`}>
+            <View style={styles.iconView}>
+                <View style={styles.deleteIcon}>
                     <TouchableOpacity onPress={handleRemoveAllItem}>
-                        <Image
-                            source={Theme.Images.icons.delete}
-                            className={`${variantStyles.deleteImage}`}
-                        />
+                        <Image source={Theme.Images.icons.delete} style={styles.deleteImage} />
                     </TouchableOpacity>
                 </View>
-                <View className={`${variantStyles.quantityView}`}>
+                <View style={styles.quantityView}>
                     <TouchableOpacity onPress={handleRemoveItem} disabled={item.quantity === 1}>
-                        <Image
-                            source={Theme.Images.icons.minus}
-                            className={`${variantStyles.minusImage}`}
-                        />
+                        <Image source={Theme.Images.icons.minus} style={styles.minusImage} />
                     </TouchableOpacity>
                     <CustomText text={item.quantity.toString()} />
                     <TouchableOpacity onPress={handleAddItem}>
-                        <Image
-                            source={Theme.Images.icons.plus}
-                            className={`${variantStyles.plusImage}`}
-                        />
+                        <Image source={Theme.Images.icons.plus} style={styles.plusImage} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -110,8 +101,8 @@ const CartItemView: React.FC<Props> = props => {
     );
 
     return (
-        <View className={`${variantStyles.container}`} style={styles.container}>
-            <View className={`${variantStyles.imageContainer}`}>
+        <View style={styles.container}>
+            <View style={styles.imageContainer}>
                 <CachedImage
                     defaultImage={Theme.Images.logo.wireApps}
                     customStyles={styles.image}
@@ -124,27 +115,34 @@ const CartItemView: React.FC<Props> = props => {
     );
 };
 
-const variantStyles = {
-    container: 'flex-1 flex-row p-3 rounded-xl shadow-black bg-white my-1 mx-1.5',
-    imageContainer: 'justify-center items-center w-24 h-24',
-    detailWrapper: 'flex-1 ml-4',
-    iconView: 'flex-col justify-between',
-    quantityView: 'justify-between items-center flex-row rounded-lg w-16',
-    deleteIcon: 'self-end',
-    deleteImage: 'w-5 h-5',
-    minusImage: 'w-5 h-5',
-    plusImage: 'w-5 h-5'
-};
-
 const styles = StyleSheet.create({
     container: {
+        padding: 12,
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: Theme.Colors.Background.PRIMARY,
+        borderRadius: 16,
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
         shadowColor: Theme.Colors.Background.SECONDARY,
-        shadowOpacity: 0.2
+        marginVertical: 3,
+        marginHorizontal: 5
+    },
+    imageContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 80,
+        height: 80
     },
     image: {
         width: '100%',
         height: '100%',
         borderRadius: 24
+    },
+    detailWrapper: {
+        flex: 1,
+        marginLeft: 15,
+        marginRight: 12
     },
     price: {
         marginTop: 10
@@ -154,6 +152,33 @@ const styles = StyleSheet.create({
     },
     colors: {
         marginTop: 5
+    },
+    iconView: {
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+    },
+    quantityView: {
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+        borderRadius: 10,
+        marginRight: 5,
+        width: 65
+    },
+    deleteIcon: {
+        alignSelf: 'flex-end'
+    },
+    minusImage: {
+        width: 20,
+        height: 20
+    },
+    plusImage: {
+        width: 20,
+        height: 20
+    },
+    deleteImage: {
+        width: 20,
+        height: 20
     }
 });
 
