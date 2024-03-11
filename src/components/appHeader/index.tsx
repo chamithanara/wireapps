@@ -7,7 +7,6 @@ import { SyncFunction } from '@app/constants/types/generic.types';
 import { FONT_SIZES } from '@app/constants/generic.constants';
 import { cartListCountSelector } from '@app/redux/secured.selector';
 import { useReduxSelector } from '@app/store';
-
 import Styles from './Styles';
 import CustomText from '../text';
 
@@ -85,7 +84,7 @@ const AppHeader: React.FC<Props> = props => {
                             // eslint-disable-next-line react-native/no-inline-styles
                             style={{ marginLeft: cartItemsCount.toString().length > 1 ? 2 : 5 }}
                             text={cartItemsCount.toString()}
-                            fontSize={FONT_SIZES.bitTiny}
+                            fontSize={FONT_SIZES.BitTiny}
                             fontWeight="500"
                         />
                     </View>

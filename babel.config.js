@@ -22,7 +22,8 @@ module.exports = {
                     '@navigation': 'app/navigation',
                     '@store': './app/store',
                     '@components': './src/components',
-                    '@features': './src/features'
+                    '@features': './src/features',
+                    '@services': './src/services'
                 }
             },
             'dynamic-import-node'

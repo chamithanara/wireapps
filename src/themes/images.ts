@@ -14,7 +14,7 @@ const Images = {
         wireApps: require('../assets/images/logo/wireApps.png') as ImageSourcePropType
     },
     tabs: {
-        productList: require('../assets/images/tabs/productList.png') as ImageSourcePropType,
+        product: require('../assets/images/tabs/home.png') as ImageSourcePropType,
         cart: require('../assets/images/tabs/cart.png') as ImageSourcePropType
     }
 };

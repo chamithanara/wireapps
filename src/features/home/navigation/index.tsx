@@ -5,12 +5,14 @@ import {
     BottomTabNavigationOptions
 } from '@react-navigation/bottom-tabs';
 import { hasNotch } from 'react-native-device-info';
-import ProductList from '@features/productList/screens';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import Product from '@src/features/product/screens';
 import Cart from '@features/cart/screens';
 import Theme from '@src/themes';
 import { FONT_SIZES } from '@app/constants/generic.constants';
 import { HomeScreenStack } from '@features/home/constants/home.navigation.constants';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Strings } from '@src/strings';
 
 export interface RenderTabBarParams {
     focused: boolean;
@@ -30,8 +32,8 @@ const HomeTabNavigator: React.FC = () => {
         </View>
     );
 
-    const renderProductListTabBarIcon = ({ color }: RenderTabBarParams) =>
-        renderIcon(Theme.Images.tabs.productList, color);
+    const renderProductTabBarIcon = ({ color }: RenderTabBarParams) =>
+        renderIcon(Theme.Images.tabs.product, color);
 
     const renderCartTabBarIcon = ({ color }: RenderTabBarParams) =>
         renderIcon(Theme.Images.tabs.cart, color);
@@ -47,17 +49,17 @@ const HomeTabNavigator: React.FC = () => {
             }}>
             <Tab.Screen
                 name={HomeScreenStack.PRODUCT_LIST}
-                component={ProductList}
+                component={Product}
                 options={{
-                    tabBarLabel: 'Home',
-                    tabBarIcon: renderProductListTabBarIcon
+                    tabBarLabel: Strings.tabBar.home,
+                    tabBarIcon: renderProductTabBarIcon
                 }}
             />
             <Tab.Screen
                 name={HomeScreenStack.CART}
                 component={Cart}
                 options={{
-                    tabBarLabel: 'Cart',
+                    tabBarLabel: Strings.tabBar.cart,
                     tabBarIcon: renderCartTabBarIcon
                 }}
             />
@@ -79,8 +81,7 @@ const styles = StyleSheet.create({
         marginBottom: hasNotch() ? 0 : 8
     },
     labelStyles: {
-        fontSize: FONT_SIZES.bitTiny,
-        fontFamily: 'PPNeueMontreal-Medium',
+        fontSize: FONT_SIZES.BitTiny,
         fontWeight: '500'
     },
     iconStyles: {

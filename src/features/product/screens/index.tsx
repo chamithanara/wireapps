@@ -1,26 +1,26 @@
 import NavigationHelpers from '@app/navigation/NavigationHelpers';
 import { useReduxDispatch, useReduxSelector } from '@app/store';
-import AppHeader from '@src/components/appHeader';
-import { Strings } from '@src/strings';
 import { hasNotch } from 'react-native-device-info';
 import React, { FC, useCallback, useEffect, useMemo } from 'react';
 import { FlatList, ListRenderItem, RefreshControl, StyleSheet, View } from 'react-native';
-import Theme from '@src/themes';
 
+import AppHeader from '@src/components/appHeader';
+import { Strings } from '@src/strings';
+import Theme from '@src/themes';
 import { CustomText, LoadingIndicator } from '@src/components';
 import { FONT_SIZES } from '@app/constants/generic.constants';
-import { ProductListActions } from '../redux/productList.slice';
-import { productsListLoading, productsListSelector } from '../redux/productList.selectors';
-import { Product } from '../api/productList.api.types';
+import { ProductActions } from '../redux/product.slice';
+import { productLoading, productSelector } from '../redux/product.selectors';
+import { Product } from '../api/product.api.types';
 import ProductItem from '../components/product';
 
 const ProductList: FC = () => {
     const dispatch = useReduxDispatch();
-    const productsList = useReduxSelector(productsListSelector);
-    const productsLoading = useReduxSelector(productsListLoading);
+    const productsList = useReduxSelector(productSelector);
+    const productsLoading = useReduxSelector(productLoading);
 
     const getProductList = useCallback(() => {
-        dispatch(ProductListActions.requestProductList());
+        dispatch(ProductActions.requestProduct());
     }, [dispatch]);
 
     useEffect(() => {

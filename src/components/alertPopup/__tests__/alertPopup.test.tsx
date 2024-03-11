@@ -1,4 +1,5 @@
 import { Alert, Platform } from 'react-native';
+
 import AlertPopupComponent from '../index';
 
 describe('Testing AlertPopup Component', () => {

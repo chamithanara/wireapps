@@ -1,4 +1,5 @@
 import { HttpMethods } from '@app/constants/enums/generic.enums';
+
 import axiosInstance from './axiosInstance';
 
 interface QueryParams {

@@ -1,24 +1,24 @@
 import { ParamListBase, RouteProp } from '@react-navigation/native';
-import { AlertPopup, AppHeader, Button, CustomText } from '@src/components';
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { FlatList, ListRenderItem, ScrollView, TouchableOpacity, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
+
 import CachedImage from '@src/components/cachedImage';
 import Theme from '@src/themes';
 import { concatTwoStrings } from '@src/utils/string.utils';
-import FastImage from 'react-native-fast-image';
 import { FONT_SIZES } from '@app/constants/generic.constants';
 import { Strings } from '@src/strings';
 import { useReduxDispatch } from '@app/store';
 import { SecuredActions } from '@app/redux/secured.slice';
 import NavigationHelpers from '@app/navigation/NavigationHelpers';
-
 import { StockStatus } from '@app/constants/enums/generic.enums';
-import { Product } from '../../api/productList.api.types';
+import { AlertPopup, AppHeader, Button, CustomText } from '@src/components';
+import { Product } from '../../api/product.api.types';
 import ProductDescriptionItem from '../../components/productDescription';
-import { multiColors, productMultiColors } from '../../constants/productList.constants';
+import { multiColors, productMultiColors } from '../../constants/product.constants';
 import styles from './styles';
 
-type ProductDetailsRouteProps = RouteProp<ParamListBase, 'ProductList/Details'>;
+type ProductDetailsRouteProps = RouteProp<ParamListBase, 'Product/Details'>;
 
 export interface Props {
     route?: ProductDetailsRouteProps;

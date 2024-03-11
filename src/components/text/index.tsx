@@ -1,6 +1,7 @@
-import { FONT_SIZES } from '@app/constants/generic.constants';
 import React from 'react';
 import { Text, TextProps, TextStyle } from 'react-native';
+
+import { FONT_SIZES } from '@app/constants/generic.constants';
 
 interface CustomTextProps extends TextProps {
     text: string;

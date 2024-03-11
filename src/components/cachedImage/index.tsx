@@ -6,9 +6,9 @@ import {
     StyleSheet,
     ImageStyle as RNImageStyle
 } from 'react-native';
-import Theme from '@src/themes';
 import FastImage, { ResizeMode, ImageStyle, Priority } from 'react-native-fast-image';
 
+import Theme from '@src/themes';
 import LoadingIndicator from '../loadingIndicator';
 
 interface Props {

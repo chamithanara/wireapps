@@ -1,9 +1,10 @@
 import React from 'react';
 import { StackNavigationOptions, createStackNavigator } from '@react-navigation/stack';
+
 import { MainScreensStack } from '@app/constants/navigation.constants';
 import Router from '@src/Router';
 import HomeNavigation from '@src/features/home/navigation';
-import ProductListNavigation from '@src/features/productList/navigation';
+import ProductNavigation from '@src/features/product/navigation';
 import CartNavigation from '@src/features/cart/navigation';
 
 const MainNavigator = createStackNavigator();
@@ -22,10 +23,7 @@ const NavigationStack: React.FC = () => {
             screenOptions={getOptions}>
             <MainNavigator.Screen name={MainScreensStack.ROUTER} component={Router} />
             <MainNavigator.Screen name={MainScreensStack.HOME} component={HomeNavigation} />
-            <MainNavigator.Screen
-                name={MainScreensStack.PRODUCT_LIST}
-                component={ProductListNavigation}
-            />
+            <MainNavigator.Screen name={MainScreensStack.PRODUCT} component={ProductNavigation} />
             <MainNavigator.Screen name={MainScreensStack.Cart} component={CartNavigation} />
         </MainNavigator.Navigator>
     );

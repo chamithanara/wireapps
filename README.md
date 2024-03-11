@@ -37,16 +37,16 @@ To Setup the project, follow the steps below.
 
 #### Splash Screen
 
-<img src="/src/assets/images/screenshots/SplashScreen.png" width="300px" />
+<img src="/src/assets/images/screenshots/splashScreen.png" width="300px" />
 
 #### Product List
 
-<img src="/src/assets/images/screenshots/ProductList.png" width="300px" />
+<img src="/src/assets/images/screenshots/productList.png" width="300px" />
 
 #### Product Details
 
-<img src="/src/assets/images/screenshots/ProductDetails.png" width="300px" />
+<img src="/src/assets/images/screenshots/productDetails.png" width="300px" />
 
 #### Cart
 
-<img src="/src/assets/images/screenshots/screenshots/Cart.png" width="300px" />
+<img src="/src/assets/images/screenshots/cart.png" width="300px" />

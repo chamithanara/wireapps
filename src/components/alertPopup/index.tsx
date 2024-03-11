@@ -1,4 +1,5 @@
 import { Alert } from 'react-native';
+
 import { SyncFunction } from '@app/constants/types/generic.types';
 
 export type AlertParams = {

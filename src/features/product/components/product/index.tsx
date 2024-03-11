@@ -1,14 +1,14 @@
 import React, { useCallback } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import FastImage from 'react-native-fast-image';
+
 import Theme from '@src/themes';
 import { CachedImage, CustomText } from '@src/components';
-import FastImage from 'react-native-fast-image';
 import { FONT_SIZES } from '@app/constants/generic.constants';
 import NavigationHelpers from '@app/navigation/NavigationHelpers';
 import { concatTwoStrings } from '@src/utils/string.utils';
 import { Strings } from '@src/strings';
-
-import { Product } from '../../api/productList.api.types';
+import { Product } from '../../api/product.api.types';
 
 interface Props {
     product: Product;

@@ -1,4 +1,4 @@
-import { Product } from '@src/features/productList/api/productList.api.types';
+import { Product } from '@src/features/product/api/product.api.types';
 
 export type CartItem = {
     product: Product;

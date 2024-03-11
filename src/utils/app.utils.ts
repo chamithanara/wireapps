@@ -1,6 +1,7 @@
 import Orientation from 'react-native-orientation-locker';
 import type { OrientationType } from 'react-native-orientation-locker';
 import { getBuildNumber } from 'react-native-device-info';
+
 import { DeviceOrientationTypes } from '@app/constants/enums/generic.enums';
 
 const setDeviceOrientation = (orientation: OrientationType): void => {

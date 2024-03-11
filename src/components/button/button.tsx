@@ -1,5 +1,6 @@
 import React, { memo, useCallback, useMemo } from 'react';
 import { View, StyleProp, TextStyle, TouchableOpacity, ViewStyle } from 'react-native';
+
 import { FONT_SIZES } from '@app/constants/generic.constants';
 import styles from './button.styles';
 import CustomText from '../text';

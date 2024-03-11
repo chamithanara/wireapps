@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
+import { hasNotch } from 'react-native-device-info';
 
 import Theme from '@src/themes/index';
-import { hasNotch } from 'react-native-device-info';
 
 const Styles = StyleSheet.create({
     container: {

@@ -3,12 +3,12 @@
  * Everything starts from the EntryPoint
  */
 import React from 'react';
-
 import { ActivityIndicator } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
-import Navigator from '@app/navigation';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import Navigator from '@app/navigation';
 
 import initializeStore from './store';
 

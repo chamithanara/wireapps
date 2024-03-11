@@ -1,11 +1,11 @@
 import React, { memo, useCallback, useMemo } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+
 import Theme from '@src/themes';
 import { AlertPopup, CustomText } from '@src/components';
 import { useReduxDispatch } from '@app/store';
 import { SecuredActions } from '@app/redux/secured.slice';
 import { concatTwoStrings } from '@src/utils/string.utils';
-
 import CachedImage from '@src/components/cachedImage';
 import { Strings } from '@src/strings';
 import { CartItem } from '../../constants/cart.types';

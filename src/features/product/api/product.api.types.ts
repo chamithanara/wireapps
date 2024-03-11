@@ -1,4 +1,4 @@
-export interface ProductListResponse {
+export interface ProductResponse {
     result: 'success' | 'Failure';
     data: Product[];
 }

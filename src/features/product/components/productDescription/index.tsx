@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
+
 import Theme from '@src/themes';
 import { CustomText } from '@src/components';
 import { FONT_SIZES } from '@app/constants/generic.constants';

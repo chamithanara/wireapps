@@ -2,6 +2,6 @@
 export const MainScreensStack = {
     ROUTER: 'Router',
     HOME: 'Home',
-    PRODUCT_LIST: 'ProductList',
+    PRODUCT: 'Product',
     Cart: 'Cart'
 };

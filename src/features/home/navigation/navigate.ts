@@ -1,6 +1,7 @@
+import { ParamListBase } from '@react-navigation/native';
+
 import { MainScreensStack } from '@app/constants/navigation.constants';
 import NavigationServices from '@app/navigation/NavigationServices';
-import { ParamListBase } from '@react-navigation/native';
 import { HomeScreenStack } from '../constants/home.navigation.constants';
 
 const navigateToHome = (params?: ParamListBase) => {

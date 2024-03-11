@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect } from 'react';
 import { View } from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
+
 import { useReduxDispatch } from '@app/store';
 import NavigationHelpers from '@app/navigation/NavigationHelpers';
 import { DeviceOrientationTypes } from '@app/constants/enums/generic.enums';
-import SplashScreen from 'react-native-splash-screen';
-
+import LoggingService from '@services/logs.service';
 import Theme from './themes';
 import appUtils from './utils/app.utils';
 
 const Router = () => {
     const dispatch = useReduxDispatch();
     appUtils.setDeviceOrientation(DeviceOrientationTypes.PORTRAIT);
-    appUtils.setDeviceOrientation(DeviceOrientationTypes['PORTRAIT-UPSIDEDOWN']);
 
     useEffect(() => {
         Theme.setTheme('light');
@@ -22,7 +22,7 @@ const Router = () => {
             NavigationHelpers.navigateToHome();
             SplashScreen.hide();
         } catch (error) {
-            // Handle error
+            LoggingService.debug('error', error);
         }
     }, []);
 

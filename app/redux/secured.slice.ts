@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
 import { CartItem } from '@src/features/cart/constants/cart.types';
 
 export interface SecuredState {

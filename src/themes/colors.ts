@@ -28,7 +28,7 @@ const LightThemeColors: ColorTypes = {
         PRIMARY: '#111111',
         SECONDARY: '#FFFFFF',
         TRANSPARENT: 'transparent',
-        DISABLED: '#F6F6F6',
+        DISABLED: '#F6F6F6'
     }
 };
 
@@ -60,7 +60,7 @@ const DarkThemeColors: ColorTypes = {
         PRIMARY: '#111111',
         SECONDARY: '#FFFFFF',
         TRANSPARENT: 'transparent',
-        DISABLED: '#F6F6F6',
+        DISABLED: '#F6F6F6'
     }
 };
 

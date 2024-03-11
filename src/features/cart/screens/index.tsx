@@ -1,16 +1,16 @@
-import { AlertPopup, AppHeader, CustomText } from '@src/components';
-import { Strings } from '@src/strings';
 import React, { FC, useCallback, useMemo } from 'react';
 import { FlatList, ListRenderItem, View } from 'react-native';
 import { useReduxDispatch, useReduxSelector } from '@app/store';
+
+import { SecuredActions } from '@app/redux/secured.slice';
+import { AlertPopup, AppHeader, CustomText } from '@src/components';
+import { Strings } from '@src/strings';
 import {
     cartListCountSelector,
     cartListSelector,
     cartListTotalSelector
 } from '@app/redux/secured.selector';
 import { FONT_SIZES } from '@app/constants/generic.constants';
-import { SecuredActions } from '@app/redux/secured.slice';
-
 import { concatStrings, concatTwoStrings } from '@src/utils/string.utils';
 import { CartItem } from '../constants/cart.types';
 import CartItemView from '../components/cartItemView';
