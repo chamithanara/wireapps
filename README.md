@@ -32,6 +32,7 @@ To Setup the project, follow the steps below.
     -   Remove an item from cart
     -   Remove all items from cart
     -   Calculate total
+-   Github branch protection rules
 
 ### Screenshots
 
