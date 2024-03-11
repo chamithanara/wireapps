@@ -79,7 +79,7 @@ const Cart: FC = () => {
 
     const renderCartContent = useMemo(
         () => (
-            <>
+            <View style={styles.content}>
                 <FlatList
                     showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={false}
@@ -91,10 +91,9 @@ const Cart: FC = () => {
                             Strings.product.concatColon
                         )
                     }
-                    style={styles.cartList}
                 />
                 {renderCartBottomContent}
-            </>
+            </View>
         ),
         [cartList, renderCartBottomContent, renderItem]
     );
